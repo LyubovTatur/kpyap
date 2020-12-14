@@ -19,26 +19,52 @@ namespace laba11
         {
             Triangle a = new Triangle(60, 60, 60);
             Triangle b = new Triangle(78, 78, 78);
-            Console.WriteLine($"создан треугольник 1: {a.ToString()}, его площадь равна {a.Square()}");
-            Console.WriteLine($"создан треугольник 2: {b.ToString()}, его площадь равна {b.Square()}");
-            if (a.CompareTo(b) == 1)
+            int n = 20;
+            Triangle[] arr = new Triangle[n];
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("площадь первого треугольника больше площади второго треугольника.");
+                arr[i] = new Triangle(random.Next(10, 100), random.Next(10, 100), random.Next(10, 100));
             }
-            else
+            ShowArray(arr);
+            Array.Sort(arr);
+            ShowArray(arr);
+            //Console.WriteLine($"создан треугольник 1: {a.ToString()}, его площадь равна {a.Square()}");
+            //Console.WriteLine($"создан треугольник 2: {b.ToString()}, его площадь равна {b.Square()}");
+            //switch (a.CompareTo(b))
+            //{
+            //    case 1:
+            //        {
+            //            Console.WriteLine("площадь первого треугольника больше площади второго треугольника.");
+            //            break;
+            //        }
+            //    case -1:
+            //        {
+            //            Console.WriteLine("площадь первого треугольника меньше площади второго треугольника.");
+            //            break;
+            //        }
+            //    case 0:
+            //        {
+            //            Console.WriteLine("площадь первого треугольника равна площади второго треугольника.");
+            //            break;
+            //        }
+            //    default:
+            //        {
+            //            Console.WriteLine("Ошибка.");
+            //            break;
+            //        }
+            //}
+            Console.ReadLine();
+            
+                    
+        }
+        static void ShowArray(Triangle[] arr)
+        {
+            Console.WriteLine("Массив:");
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (a.CompareTo(b) == -1)
-                {
-                    Console.WriteLine("площадь первого треугольника меньше площади второго треугольника.");
-                }
-                
-                else
-                {
-                    Console.WriteLine("площадь первого треугольника равна площади второго треугольника.");
-                }
-
+                Console.WriteLine(arr[i].ToString() + " "+ arr[i].Square().ToString());
             }
-                    Console.ReadLine();
         }
     }
 }

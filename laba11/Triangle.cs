@@ -105,7 +105,7 @@ namespace laba11
         }
         public double Square()
         {
-            return Math.Sqrt(HalfP()*(HalfP()-AtoB)*( HalfP()-BtoC)*(HalfP()-CtoA));
+            return Math.Round(Math.Sqrt(HalfP()*(HalfP()-AtoB)*( HalfP()-BtoC)*(HalfP()-CtoA)), 2);
         }
         public int CompareTo(Triangle triangle)
         {
