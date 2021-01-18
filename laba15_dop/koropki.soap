@@ -1,0 +1,138 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<SOAP-ENC:Array SOAP-ENC:arrayType="a1:Boxes[4]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<item href="#ref-3"/>
+<item href="#ref-4"/>
+<item href="#ref-5"/>
+<item href="#ref-6"/>
+</SOAP-ENC:Array>
+<a1:Boxes id="ref-3" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<number>0</number>
+<made_of id="ref-7">кортоны</made_of>
+<kotiksi href="#ref-8"/>
+</a1:Boxes>
+<a1:Boxes id="ref-4" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<number>1</number>
+<made_of id="ref-9">сырового</made_of>
+<kotiksi href="#ref-10"/>
+</a1:Boxes>
+<a1:Boxes id="ref-5" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<number>2</number>
+<made_of id="ref-11">тканевых обрывков</made_of>
+<kotiksi href="#ref-12"/>
+</a1:Boxes>
+<a1:Boxes id="ref-6" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<number>3</number>
+<made_of id="ref-13">моей майки которую мама у меня украла</made_of>
+<kotiksi href="#ref-14"/>
+</a1:Boxes>
+<SOAP-ENC:Array id="ref-8" SOAP-ENC:arrayType="a1:Kotiksi[5]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<item href="#ref-15"/>
+<item href="#ref-16"/>
+<item href="#ref-17"/>
+<item href="#ref-18"/>
+<item href="#ref-19"/>
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-10" SOAP-ENC:arrayType="a1:Kotiksi[5]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<item href="#ref-20"/>
+<item href="#ref-21"/>
+<item href="#ref-22"/>
+<item href="#ref-23"/>
+<item href="#ref-24"/>
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-12" SOAP-ENC:arrayType="a1:Kotiksi[5]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<item href="#ref-25"/>
+<item href="#ref-26"/>
+<item href="#ref-27"/>
+<item href="#ref-28"/>
+<item href="#ref-29"/>
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-14" SOAP-ENC:arrayType="a1:Kotiksi[5]" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<item href="#ref-30"/>
+<item href="#ref-31"/>
+<item href="#ref-32"/>
+<item href="#ref-33"/>
+<item href="#ref-34"/>
+</SOAP-ENC:Array>
+<a1:Kotiksi id="ref-15" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-35">Мася</name>
+<color id="ref-36">светлый</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-16" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-37">Шлепик</name>
+<color id="ref-38">порозовее</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-17" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-39">Борька</name>
+<color id="ref-40">маленький</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-18" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-41">Боба</name>
+<color href="#ref-40"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-19" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-35"/>
+<color id="ref-42">розовый</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-20" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-41"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-21" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-35"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-22" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-39"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-23" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-41"/>
+<color href="#ref-38"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-24" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-35"/>
+<color id="ref-43">посветлее</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-25" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-35"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-26" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-37"/>
+<color id="ref-44">большой</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-27" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-35"/>
+<color href="#ref-36"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-28" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-41"/>
+<color id="ref-45">пушистый</color>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-29" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-39"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-30" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-46">Попик</name>
+<color href="#ref-43"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-31" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name id="ref-47">Крыська</name>
+<color href="#ref-44"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-32" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-47"/>
+<color href="#ref-38"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-33" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-46"/>
+<color href="#ref-45"/>
+</a1:Kotiksi>
+<a1:Kotiksi id="ref-34" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/laba15_dop/laba15_dop%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<name href="#ref-47"/>
+<color href="#ref-42"/>
+</a1:Kotiksi>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
