@@ -19,9 +19,15 @@ namespace lab19
             // t1 =0.4 t2 = 0.55
             StreamReader sr = new StreamReader("number.in");
             object number = (object)sr.ReadLine();
+
+            int num = int.Parse(number.ToString());
+            int numCount = num.ToString().Length;
+            Console.WriteLine(numCount);
             sr.Close();
             Thread thread1 = new Thread(new ParameterizedThreadStart(Thread1));
+            thread1.Name = "1";
             Thread thread2 = new Thread(new ParameterizedThreadStart(Thread2));
+            thread2.Name = "2";
             thread1.Start(number);
             thread2.Start(number);
             Console.ReadLine();
@@ -29,26 +35,17 @@ namespace lab19
 
         public static void Thread1(object number)
         {
-            bool locker2 = false;
-            try
+            int num = int.Parse(number.ToString());
+            int sum = 0;
+            int numCount = num.ToString().Length;
+            int x = 1;
+            while (num > 0)
             {
-                Monitor.Enter(locker, ref locker2);
-                int num = int.Parse(number.ToString());
-                int sum = 0;
-                int numCount = num.ToString().Length;
-                int x = 1;
-                StreamWriter sw = new StreamWriter("state.out");
-                while (num > 0)
-                {
-                  sw.WriteLine($"delegat #1 |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {(double)x / numCount * 100}% |");
-                    Iter1(ref num, ref sum);
-                    Thread.Sleep(t1);
-                    x++;
-                }
-            }
-            finally
-            {
-                if (locker2) Monitor.Exit(locker);
+               
+                Iter(ref num, ref sum, ref x, numCount);
+                Thread.Sleep(t1);
+                
+
             }
 
 
@@ -57,53 +54,43 @@ namespace lab19
         public static void Thread2(object number)
         {
 
-            bool locker2 = false;
-            try
+            int num = int.Parse(number.ToString());
+            int sum = 0;
+            int numCount = num.ToString().Length;
+            int x = 1;
+            while (num > 0)
             {
 
-                Monitor.Enter(locker, ref locker2);
-                int num = int.Parse(number.ToString());
-                int sum = 0;
-                int numCount = num.ToString().Length;
-                StreamWriter sw = new StreamWriter("state.out");
-                int x = 1;
-                while (num > 0)
-                {
-                    sw.WriteLine($"delegat #2 |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {(double)x/numCount*100}% |");
-                    Iter2(ref num, ref sum);
+                    Iter(ref num, ref sum, ref x, numCount);
                     Thread.Sleep(t2);
-                    x++;
-                }
+                
+
+               
             }
-            finally
+
+            
+
+        }
+        
+        public static void Iter(ref int num, ref int sum,ref int x, int numCount)
+        {
+
+            lock (locker)
             {
-                if (locker2) Monitor.Exit(locker);
+                if (num % 10 % 2 == 0)
+                {
+                    sum += num % 10;
+                }
+                StreamWriter sw = new StreamWriter("state.out", true);
+                sw.WriteLine($"delegat #{Thread.CurrentThread.Name} |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {(double)x / numCount * 100}% |");
+                Console.WriteLine($"delegat #{Thread.CurrentThread.Name} |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {Math.Round((double)x / numCount * 100, 2)} % |");
+                x++;
+                sw.Close();
+
+                num /= 10;
+                
             }
 
-            
-
-        }
-        public static void Iter1(ref int num, ref int sum)
-        {
-                if (num % 10 % 2 == 0)
-                {
-                    sum += num % 10;
-                }
-                num /= 10;
-
-            
-        }
-        public static void Iter2(ref int num, ref int sum)
-        {
-            
-            
-                if (num % 10 % 2 == 0)
-                {
-                    sum += num % 10;
-                }
-                num /= 10;
-
-            
         }
     }
 }
