@@ -75,8 +75,8 @@ namespace lab19
         public static void Iter(ref int num, ref int sum,ref int x, int numCount)
         {
 
-            lock (locker)
-            {
+            Monitor.Enter(locker);
+            
                 if (num % 10 % 2 == 0)
                 {
                     sum += num % 10;
@@ -88,8 +88,8 @@ namespace lab19
                 sw.Close();
 
                 num /= 10;
-                
-            }
+            Monitor.Exit(locker);   
+            
 
         }
     }
