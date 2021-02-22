@@ -11,7 +11,7 @@ namespace lab19
     class Program
     {
         static object locker = new object();
-        static int t1 = 400;
+        static int t1 = 200;
         static int t2 =550;
         static void Main(string[] args)
         {
@@ -20,9 +20,9 @@ namespace lab19
             StreamReader sr = new StreamReader("number.in");
             object number = (object)sr.ReadLine();
 
-            int num = int.Parse(number.ToString());
-            int numCount = num.ToString().Length;
-            Console.WriteLine(numCount);
+            string num = number.ToString();
+             int numCount = num.ToString().Length;
+            //Console.WriteLine(numCount);
             sr.Close();
             Thread thread1 = new Thread(new ParameterizedThreadStart(Thread1));
             thread1.Name = "1";
@@ -35,11 +35,12 @@ namespace lab19
 
         public static void Thread1(object number)
         {
-            int num = int.Parse(number.ToString());
+            
+            string num = number.ToString();
             int sum = 0;
             int numCount = num.ToString().Length;
             int x = 1;
-            while (num > 0)
+            while (x<=numCount)
             {
                
                 Iter(ref num, ref sum, ref x, numCount);
@@ -54,11 +55,11 @@ namespace lab19
         public static void Thread2(object number)
         {
 
-            int num = int.Parse(number.ToString());
+            string num = number.ToString();
             int sum = 0;
             int numCount = num.ToString().Length;
             int x = 1;
-            while (num > 0)
+            while (x<=numCount)
             {
 
                     Iter(ref num, ref sum, ref x, numCount);
@@ -72,22 +73,31 @@ namespace lab19
 
         }
         
-        public static void Iter(ref int num, ref int sum,ref int x, int numCount)
+        public static void Iter(ref string num, ref int sum,ref int x, int numCount)
         {
 
             Monitor.Enter(locker);
-            
-                if (num % 10 % 2 == 0)
+            string str = num.ToString();
+
+            Console.WriteLine(str[x-1]);
+            if (char.IsDigit(str[x-1]))
+            {
+                int digit = int.Parse(str[x-1].ToString());
+
+
+                if (digit % 2 == 0)
                 {
-                    sum += num % 10;
+                    sum += digit;
                 }
+            }
                 StreamWriter sw = new StreamWriter("state.out", true);
                 sw.WriteLine($"delegat #{Thread.CurrentThread.Name} |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {(double)x / numCount * 100}% |");
                 Console.WriteLine($"delegat #{Thread.CurrentThread.Name} |*| iter #{x} | sum:{sum} | time:{DateTime.Now.ToLongTimeString()} | perhent: {Math.Round((double)x / numCount * 100, 2)} % |");
                 x++;
                 sw.Close();
+            
+            num.Substring(num.Length - 1);
 
-                num /= 10;
             Monitor.Exit(locker);   
             
 
