@@ -98,7 +98,7 @@ namespace XML_dva
             XDocument xdoc = XDocument.Load("yams.xml");
             foreach (XElement yam in xdoc.Element("yams").Elements("yam"))
             {
-                if (yam.Element("amount").Value != "0")
+                if(yam.Element("amount").Value != "0")
                 {
                     yam.Element("amount").Value = (int.Parse(yam.Element("amount").Value)-1).ToString();
                 }
