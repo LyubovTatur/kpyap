@@ -9,33 +9,50 @@ namespace laba20
 {
     class Program
     {
-        static void Main(string[] args)
+        static CancellationTokenSource cansel = new CancellationTokenSource();
+        static CancellationToken token = cansel.Token;
+        static  void Main(string[] args)
         {
            // Func<double, double, int, Test, int> func = Ln;
             Test test = new Test();
-            Console.WriteLine("x э (-1;1)");
-            Console.Write("x = ");
-            double x = double.Parse(Console.ReadLine());
-            Console.Write("delta = ");
-            double delta = double.Parse(Console.ReadLine());
-            TaskAsync(x, delta, 1, test);
-
-        }
-        static async void TaskAsync(double value, double delta, int step, Test test)
-        {
-            await Task.Run(() => 
+            test.Progress = 1;
+            //Console.WriteLine("x э (-1;1)");
+            //Console.Write("x = ");
+            // double x = double.Parse(Console.ReadLine());
+            double x = 0.008;
+            //Console.Write("delta = ");
+            //double delta = double.Parse(Console.ReadLine());
+            double delta = 0.0001;
+            //Console.WriteLine();
+            Task.Run(() => TaskAsync(x, delta, 1, test));
+            var s = Console.ReadKey();
+            if (s.Key == ConsoleKey.Spacebar)
             {
-                while (t.Progress>delta)
+                cansel.Cancel();
+            }
+            Console.ReadKey();
+        }
+        static  void TaskAsync(double value, double delta, int step, Test test)
+        {
+            
+            while (test.Progress > delta)
                 {
+                if (token.IsCancellationRequested)
+                {
+                    Console.WriteLine("(отвлекнулся на печеньку)");
+                    break;
+                }
                     var t = Ln(value, delta, step,  test);
-                     
+                //Console.WriteLine($"result = {test.CurrentResult}\t progress = {test.Progress} (Main)");
+
+                Thread.Sleep(300);
                 }
                 
-            });
             
         }
-        static async Test Ln(double value,double delta,  int step,  Test test)
+        static  Test Ln(double value,double delta,  int step,  Test test)
         {
+            // 3 вариант
             double part = 1;
             for (int i = 0; i < step; i++)
             {
@@ -49,7 +66,7 @@ namespace laba20
             test.CurrentResult += part;
             test.Progress = delta / test.CurrentResult;
             step++;
-            Console.WriteLine($"result = {test.CurrentResult}\t progress = {test.Progress} (Main)");
+            Console.WriteLine($"result = {test.CurrentResult}\t progress = {test.Progress} (не Main)");
             return test;
         }
         static  void AsyncCallback(IAsyncResult result)

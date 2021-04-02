@@ -39,14 +39,24 @@ namespace lab23
         {
             Form f = new Form();
             f.MdiParent = this;
+            Bitmap bitmap1 = new Bitmap(1920,1080);
+            Graphics g = Graphics.FromImage(bitmap1);
+            g.FillRectangle(new SolidBrush(Color.White), new RectangleF(0, 0, 1920, 1080));
             PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = bitmap1;
             pictureBox.Dock = DockStyle.Fill;
             pictureBox.MouseDown+=pictureBox_MouseDown;
+            pictureBox.GotFocus += PictureBox_GotFocus;
             pictureBox.MouseMove += pictureBox_MouseMove;
             pictureBox.MouseUp += pictureBox_MouseUp;
             f.Controls.Add(pictureBox);
             f.Show();
             
+        }
+
+        private void PictureBox_GotFocus(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -129,9 +139,9 @@ namespace lab23
                         {
                             tempLayer = new Bitmap(pictureBox.Width, pictureBox.Height);
                             Graphics tempGraphics = Graphics.FromImage(tempLayer);
-                            tempGraphics.Clear(Color.Empty);
-                            tempGraphics.DrawLine(pen, startPoint, e.Location);
+                           // tempGraphics.Clear(Color.Empty);
                             tempGraphics.DrawImage(bitmap,0,0);
+                            tempGraphics.DrawLine(pen, startPoint, e.Location);
                             pictureBox.Image = tempLayer;
 
                         }
@@ -256,6 +266,7 @@ namespace lab23
                     case "empty rectangle":
                         break;
                     case "bg text":
+                        
                         graphics.FillRectangle(brush,new RectangleF( new PointF( startPoint.X, startPoint.Y), graphics.MeasureString(text, new Font("Arial", 14))));
                         graphics.DrawString(text, new Font("Arial", 14), pen.Brush, e.Location);
 
@@ -352,7 +363,7 @@ namespace lab23
 
         private void filledToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            state = "filled rectangle";
+             state = "filled rectangle";
         }
 
         private void emptyToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -403,9 +414,134 @@ namespace lab23
                 if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
                 {
                     Graphics g = pictureBox.CreateGraphics();
+                    Bitmap bitmap = new Bitmap(pictureBox.Image);
+                    int countX = 30;
+                    int countY= 30;
+                    int stepX = bitmap.Width/countX;
+                    int stepY = bitmap.Height/countY;
+                    bool black = true;
+                    for (int x = stepX; x < bitmap.Width; x+=stepX)
+                    {
+                        for (int y = stepY; y < bitmap.Height; y+=stepY)
+                        {
+                            if (black)
+                            {
+
+                                for (int i = 0; i != stepX; i++)
+                                {
+                                    for (int j = 0; j != stepY; j++)
+                                    {
+                                        bitmap.SetPixel(x-i, y-j, Color.Black);
+                                    }
+                                }
+                            }
+                            //MessageBox.Show(y.ToString());
+                            //MessageBox.Show(x.ToString());
+                            black = !black;
+                            if (x >= bitmap.Width-stepX)
+                            {
+                                black = !black;
+
+                            }
+                        }
+                    }
+                    pictureBox.Image = bitmap;
                 }
                     
             }
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void собельToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
+                {
+                    //int[,] sobelY = new int[3,3] { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
+                    //int[,] sobelX = new int[3,3] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+                    //Bitmap bitmap = new Bitmap(pictureBox.Image);
+                    //Bitmap newBitmap = new Bitmap(pictureBox.Image);
+                    //for (int x = 0; x < bitmap.Width; x++)
+                    //{
+                    //    for (int y = 0; y < bitmap.Height; y++)
+                    //    {
+                    //        Color imgColor = bitmap.GetPixel(x, y);
+                    //        Color img2Color = 
+                    //    }
+                    //}
+
+                }
+            }
+        }
+
+        private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
+                {
+                    Bitmap bitmap = new Bitmap(pictureBox.Image);
+                    Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
+
+                    int avgR = 0, avgG = 0, avgB = 0, blurPixelCount = 0;
+                    for (int x = 30; x < bitmap.Width; x+=30)
+                    {
+                        for (int y = 30; y < bitmap.Height; y+=30)
+                        {
+                            avgR = 0;
+                            avgG =0;
+                            avgB =0;
+                            blurPixelCount=0;
+
+                            for (int i = 0; i != 31; i++)
+                            {
+                                for (int j = 0; j != 31; j++)
+                                {
+                                    Color pixel = bitmap.GetPixel(x-i, y-j);
+                                    
+
+                                    avgR += pixel.R;
+                                    avgG += pixel.G;
+                                    avgB += pixel.B;
+                                    
+                                    blurPixelCount++;
+                                }
+                            }
+
+                            avgR = avgR / blurPixelCount;
+                            avgG = avgG / blurPixelCount;
+                            avgB = avgB / blurPixelCount;
+
+                            for (int i = 0; i != 31; i++)
+                            {
+                                for (int j = 0; j != 31; j++)
+                                {
+                                    newBitmap.SetPixel(x-i, y-j, Color.FromArgb(avgR, avgG, avgB));
+                                }
+                            }
+                        }
+                    }
+
+
+                    
+                    pictureBox.Image = newBitmap;
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
