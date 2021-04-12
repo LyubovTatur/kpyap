@@ -63,6 +63,16 @@ namespace lab23.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1200px_Kvadrato_svg {
+            get {
+                object obj = ResourceManager.GetObject("1200px-Kvadrato.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1200px_LetterT_svg {
             get {
                 object obj = ResourceManager.GetObject("1200px-LetterT.svg", resourceCulture);
@@ -83,9 +93,29 @@ namespace lab23.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _24621072_w640_h640_kist_fleicevaia35222222_2 {
+            get {
+                object obj = ResourceManager.GetObject("24621072_w640_h640_kist_fleicevaia35222222_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9086_raskraska_pryamougolnik_kontur {
             get {
                 object obj = ResourceManager.GetObject("9086-raskraska-pryamougolnik-kontur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aa_152558 {
+            get {
+                object obj = ResourceManager.GetObject("aa-152558", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,17 @@ namespace lab23.Properties {
         internal static System.Drawing.Bitmap izobrazhenie_pryamougolnika {
             get {
                 object obj = ResourceManager.GetObject("izobrazhenie-pryamougolnika", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_computer_icons_cut_copy_and_paste_art_clipboard_angle_rectangle_clipboard {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-computer-icons-cut-copy-and-paste-art-clipboard-angle-rectangle-c" +
+                        "lipboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +177,36 @@ namespace lab23.Properties {
         internal static System.Drawing.Bitmap triangle {
             get {
                 object obj = ResourceManager.GetObject("triangle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed {
+            get {
+                object obj = ResourceManager.GetObject("unnamed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Без_названия {
+            get {
+                object obj = ResourceManager.GetObject("Без названия", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap текст {
+            get {
+                object obj = ResourceManager.GetObject("текст", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -70,6 +70,7 @@ namespace lab23
                 {
                     case "draw":
                         startPoint = new Point(-1, -1);
+                        state = "none";
                         break;
                     case "line":
                         graphics.DrawLine(pen, startPoint, e.Location);
@@ -112,7 +113,7 @@ namespace lab23
                         MessageBox.Show("Ошибка.");
                         break;
                 }
-                state = "none";
+                //state = "none";
                 //  Bitmap booba = new Bitmap(pictureBox.Width, pictureBox.Height,  graphics);
                 //  pictureBox.Image = booba;
                 pictureBox.Image = bitmap;
@@ -153,9 +154,9 @@ namespace lab23
                         {
                             tempLayer = new Bitmap(pictureBox.Width, pictureBox.Height);
                             Graphics tempGraphics = Graphics.FromImage(tempLayer);
-                            tempGraphics.Clear(Color.Empty);
-                            tempGraphics.DrawEllipse(pen, startPoint.X, startPoint.Y, Math.Abs(startPoint.X - e.X), Math.Abs(startPoint.Y - e.Y));
+                            //tempGraphics.Clear(Color.Empty);
                             tempGraphics.DrawImage(bitmap, 0, 0);
+                            tempGraphics.DrawEllipse(pen, startPoint.X, startPoint.Y, Math.Abs(startPoint.X - e.X), Math.Abs(startPoint.Y - e.Y));
                             pictureBox.Image = tempLayer;
 
                         }
@@ -413,10 +414,18 @@ namespace lab23
             {
                 if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
                 {
-                    Graphics g = pictureBox.CreateGraphics();
-                    Bitmap bitmap = new Bitmap(pictureBox.Image);
-                    int countX = 30;
-                    int countY= 30;
+                    //
+                    panel1.Visible = true;
+                    tempLayer = new Bitmap(bitmap.Width, bitmap.Height);
+                    Graphics tempGraphics = Graphics.FromImage(tempLayer);
+                    //tempGraphics.Clear(Color.Empty);
+                    tempGraphics.DrawImage(bitmap, 0, 0);
+
+                    //
+                    //Graphics g = pictureBox.CreateGraphics();
+                    //Bitmap bitmap = new Bitmap(pictureBox.Image);
+                    int countX = trackBar1.Value;
+                    int countY= trackBar2.Value;
                     int stepX = bitmap.Width/countX;
                     int stepY = bitmap.Height/countY;
                     bool black = true;
@@ -431,7 +440,7 @@ namespace lab23
                                 {
                                     for (int j = 0; j != stepY; j++)
                                     {
-                                        bitmap.SetPixel(x-i, y-j, Color.Black);
+                                        tempLayer.SetPixel(x-i, y-j, Color.Black);
                                     }
                                 }
                             }
@@ -444,8 +453,10 @@ namespace lab23
 
                             }
                         }
-                    }
-                    pictureBox.Image = bitmap;
+                    }  
+                    pictureBox.Image = tempLayer;
+
+                    //pictureBox.Image = bitmap;
                 }
                     
             }
@@ -463,83 +474,73 @@ namespace lab23
 
         private void собельToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ActiveMdiChild != null)
-            {
-                if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
-                {
-                    //int[,] sobelY = new int[3,3] { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
-                    //int[,] sobelX = new int[3,3] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
-                    //Bitmap bitmap = new Bitmap(pictureBox.Image);
-                    //Bitmap newBitmap = new Bitmap(pictureBox.Image);
-                    //for (int x = 0; x < bitmap.Width; x++)
-                    //{
-                    //    for (int y = 0; y < bitmap.Height; y++)
-                    //    {
-                    //        Color imgColor = bitmap.GetPixel(x, y);
-                    //        Color img2Color = 
-                    //    }
-                    //}
 
-                }
-            }
         }
 
         private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ActiveMdiChild != null)
-            {
-                if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
-                {
-                    Bitmap bitmap = new Bitmap(pictureBox.Image);
-                    Bitmap newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
 
-                    int avgR = 0, avgG = 0, avgB = 0, blurPixelCount = 0;
-                    for (int x = 30; x < bitmap.Width; x+=30)
-                    {
-                        for (int y = 30; y < bitmap.Height; y+=30)
-                        {
-                            avgR = 0;
-                            avgG =0;
-                            avgB =0;
-                            blurPixelCount=0;
-
-                            for (int i = 0; i != 31; i++)
-                            {
-                                for (int j = 0; j != 31; j++)
-                                {
-                                    Color pixel = bitmap.GetPixel(x-i, y-j);
-                                    
-
-                                    avgR += pixel.R;
-                                    avgG += pixel.G;
-                                    avgB += pixel.B;
-                                    
-                                    blurPixelCount++;
-                                }
-                            }
-
-                            avgR = avgR / blurPixelCount;
-                            avgG = avgG / blurPixelCount;
-                            avgB = avgB / blurPixelCount;
-
-                            for (int i = 0; i != 31; i++)
-                            {
-                                for (int j = 0; j != 31; j++)
-                                {
-                                    newBitmap.SetPixel(x-i, y-j, Color.FromArgb(avgR, avgG, avgB));
-                                }
-                            }
-                        }
-                    }
-
-
-                    
-                    pictureBox.Image = newBitmap;
-                }
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild.Controls[0] is PictureBox pictureBox)
+            {
+                //
+                panel1.Visible = false;
+
+                
+
+                //
+                Graphics g = pictureBox.CreateGraphics();
+                Bitmap bitmap = new Bitmap(pictureBox.Image);
+                int countX = trackBar1.Value;
+                int countY = trackBar2.Value;
+                int stepX = bitmap.Width / countX;
+                int stepY = bitmap.Height / countY;
+                bool black = true;
+                for (int x = stepX; x < bitmap.Width; x += stepX)
+                {
+                    for (int y = stepY; y < bitmap.Height; y += stepY)
+                    {
+                        if (black)
+                        {
+
+                            for (int i = 0; i != stepX; i++)
+                            {
+                                for (int j = 0; j != stepY; j++)
+                                {
+                                    bitmap.SetPixel(x - i, y - j, Color.Black);
+                                }
+                            }
+                        }
+                        //MessageBox.Show(y.ToString());
+                        //MessageBox.Show(x.ToString());
+                        black = !black;
+                        if (x >= bitmap.Width - stepX)
+                        {
+                            black = !black;
+
+                        }
+                    }
+                }
+               // pictureBox.Image = tempLayer;
+
+                pictureBox.Image = bitmap;
+            }
+        }
+
+        private void brushToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            state = "none";
+        }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

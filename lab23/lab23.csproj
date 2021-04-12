@@ -113,5 +113,26 @@
   <ItemGroup>
     <None Include="Resources\9086-raskraska-pryamougolnik-kontur.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24621072_w640_h640_kist_fleicevaia35222222_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200px-Kvadrato.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\текст.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aa-152558.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Без названия.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-cut-copy-and-paste-art-clipboard-angle-rectangle-clipboard.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
