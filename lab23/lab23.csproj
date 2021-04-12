@@ -71,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TextHandler.resx">
       <DependentUpon>TextHandler.cs</DependentUpon>
@@ -87,6 +88,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\straight-lines-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pryamougolnik-abcd_%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\239px-Latin_letter_T.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200px-LetterT.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\izobrazhenie-pryamougolnika.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9086-raskraska-pryamougolnik-kontur.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
